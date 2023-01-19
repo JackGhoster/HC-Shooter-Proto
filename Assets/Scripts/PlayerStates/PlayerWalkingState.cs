@@ -1,21 +1,32 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class PlayerWalkingState : PlayerAbstractState
 {
+    private PlayerStateManager _context;
+    private PlayerMovement _playerMovementComponent;
     public override void EnterState(PlayerStateManager player)
     {
-        throw new System.NotImplementedException();
+        _playerMovementComponent = player.gameObject.GetComponent<PlayerMovement>();        
+        _playerMovementComponent.enabled = true;
+        _context = player;
+        EventManager.current.OnWaypointReached += StopMoving;
+    }
+
+    public override void UpdateState(PlayerStateManager player)
+    {        
     }
 
     public override void ExitState(PlayerStateManager player)
     {
-        throw new System.NotImplementedException();
+        EventManager.current.OnWaypointReached -= StopMoving;
+        _playerMovementComponent.enabled = false;
+        player.SwitchState(player.shootingState);
     }
 
-    public override void UpdateState(PlayerStateManager player)
+    private void StopMoving()
     {
-        throw new System.NotImplementedException();
+        ExitState(_context);
     }
+
 }

@@ -40,6 +40,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4754872873244472448}
   - component: {fileID: 4754872873237502832}
+  - component: {fileID: 1403962368167847921}
+  - component: {fileID: 4152199050991895752}
   - component: {fileID: 3856651257430726835}
   - component: {fileID: 3856651257430726837}
   m_Layer: 0
@@ -86,6 +88,33 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &1403962368167847921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4754872873244895392}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f0a22ba4611fc64c9dbc547327f5599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 0}
+  _agent: {fileID: 0}
+--- !u!114 &4152199050991895752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4754872873244895392}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff9027dd4e2c60e46b1045a755eaf650, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 0}
 --- !u!114 &3856651257430726835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98,6 +127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eca5d3a7e556c74489049421c705368b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  agent: {fileID: 0}
 --- !u!195 &3856651257430726837
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -507,7 +538,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4754872873244895418}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1

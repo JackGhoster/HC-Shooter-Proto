@@ -1,28 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
+
 using UnityEngine;
 
 public class PlayerIdlingState : PlayerAbstractState
 {
+    private PlayerStateManager _context;
+
     public override void EnterState(PlayerStateManager player)
     {
-        Debug.Log("Hello");
-    }
-
-    public override void ExitState(PlayerStateManager player)
-    {
-        throw new System.NotImplementedException();
+        EventManager.current.OnGameStarted += StopIdling;
+        _context = player;
+        Debug.Log("Entering Idling State");
     }
 
     public override void UpdateState(PlayerStateManager player)
     {
-        CheckIfGameStarted();
-        Debug.Log("I am Idling");
+    }
+    public override void ExitState(PlayerStateManager player)
+    {
+        EventManager.current.OnGameStarted -= StopIdling;
+        Debug.Log("Switching to Walking State");
+        player.SwitchState(player.walkingState);
     }
 
-    private void CheckIfGameStarted()
+    private void StopIdling()
     {
-        Debug.Log("Game Started");
+        ExitState(_context);
     }
 
 }
