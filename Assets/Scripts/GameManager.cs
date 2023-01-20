@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
 
     public void WaypointItterator()
     {
-        currentEnemyCluster++;
+        currentEnemyCluster++;        
         _waypointIndex++;
         currentWaypoint = _waypoints[_waypointIndex];
         Debug.Log($"Current Waypoint {currentWaypoint}");

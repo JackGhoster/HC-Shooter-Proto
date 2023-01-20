@@ -13,9 +13,10 @@ public class EnemyCluster : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {      
+    {
+        
         EventManager.current.OnKill += EnemyGotKilled;
-        _currentCluster = GameManager.current.currentEnemyCluster;
+        EventManager.current.OnShootingEnded += ChangeCurrentCluster;
     }
 
     // Update is called once per frame
@@ -25,10 +26,10 @@ public class EnemyCluster : MonoBehaviour
     }
 
     private void EnemyGotKilled()
-    {
-        _currentCluster = GameManager.current.currentEnemyCluster;
+    {        
         if (_id != _currentCluster) return;
         enemiesKilled++;
+
         if (enemiesKilled == enemies.Count)
         {
             Debug.Log("Shooting Ended");
@@ -36,5 +37,16 @@ public class EnemyCluster : MonoBehaviour
         }
     }
 
+    private void ChangeCurrentCluster()
+    {
+        StartCoroutine(WaitForChangesBeforeIncrementing());
+        
+    }
 
+    IEnumerator WaitForChangesBeforeIncrementing()
+    {
+        yield return new WaitForSeconds(0.5f);
+        _currentCluster++;
+    }
+    
 }

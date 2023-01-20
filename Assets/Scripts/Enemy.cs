@@ -1,6 +1,8 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour, IKillable
 {
@@ -10,8 +12,10 @@ public class Enemy : MonoBehaviour, IKillable
     private Rigidbody[] _allRB;
     [SerializeField]
     private Collider _boxCol;
-
+    [SerializeField]
+    private Slider _hpSlider;
     private int _hp;
+
 
     private void Awake()
     {
@@ -33,18 +37,17 @@ public class Enemy : MonoBehaviour, IKillable
     {
         if (collision.gameObject.CompareTag("Bullet"))
         {
-            //this.transform.gameObject.GetComponentInParent<EnemyCluster>().enemies.Remove(this.gameObject);
-            //this.transform.gameObject.GetComponentInParent<EnemyCluster>().enemiesKilled++;
-            //Died();
             LoseHealthPoints();
             CheckHealthPoints();
+            float health = Mathf.LerpUnclamped(_hp, 0, 0.5f);
+            _hpSlider.value = health;
         }
     }
 
     public void Died()
     {
         _boxCol.enabled = false;
-        _animator.enabled = false;
+        _animator.enabled = false;       
         EventManager.current.Killed();
         //turning the ragdoll on
         for (int i = 0; i < _allRB.Length; i++)
