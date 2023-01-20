@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - TouchManager
+  - EventManager
+  - GameManager
+  - Bullet
+  - Enemy
+  - ObjectPooler
   layers:
   - Default
   - TransparentFX

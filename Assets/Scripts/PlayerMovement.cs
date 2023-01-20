@@ -54,9 +54,9 @@ public class PlayerMovement : MonoBehaviour
     private void NearDestination()
     {
         _currentWaypoint = _gameManager.currentWaypoint;
-        var howNear = 2;
+        var howNear = 2.2f;
         if (CalculateDistance() < howNear)
-        {
+        {          
             _eventManager.WaypointReached();
         }
     }

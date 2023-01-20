@@ -14,7 +14,10 @@ public class EventManager : MonoBehaviour
 
     public event Action OnGameStarted;
     public event Action OnWaypointReached;
+    public event Action OnScreenPressed;
     public event Action OnShootingEnded;
+    public event Action OnKill;
+    public event Action OnWin;
 
     public void StartGame()
     {
@@ -33,11 +36,35 @@ public class EventManager : MonoBehaviour
         }
     }
 
+    public void ScreenPressed()
+    {
+        if (OnScreenPressed != null)
+        {
+            OnScreenPressed();
+        }
+    }
+
     public void ShootingEnded()
     {
         if(OnShootingEnded != null)
         {
             OnShootingEnded();
+        }
+    }
+
+    public void Killed()
+    {
+        if (OnKill != null)
+        {
+            OnKill();
+        }
+    }
+
+    public void Win()
+    {
+        if(OnWin != null)
+        {
+            OnWin();
         }
     }
 }
