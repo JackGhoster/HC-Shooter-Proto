@@ -5,6 +5,11 @@ using UnityEngine.AI;
 
 public class PlayerMovement : MonoBehaviour
 {
+    /// <summary>
+    /// Behavior of the player that defines Movement logic of the player.
+    /// Component should be disabled as default.
+    /// Can be set enabled only upon entering Walking State.
+    /// </summary>
     [SerializeField]
     private Animator _animator;
     [SerializeField]

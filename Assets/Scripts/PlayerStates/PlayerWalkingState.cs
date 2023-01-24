@@ -3,6 +3,9 @@ using UnityEngine.AI;
 
 public class PlayerWalkingState : PlayerAbstractState
 {
+    /// <summary>
+    /// Check Player Abstract State for info
+    /// </summary>
     private PlayerStateManager _context;
     private PlayerMovement _playerMovementComponent;
     public override void EnterState(PlayerStateManager player)

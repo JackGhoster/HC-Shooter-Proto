@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    /// <summary>
+    /// Manages general game logic such as starting the game at the beginning and etc
+    /// </summary>
+   
     [SerializeField]
     private List<Transform> _waypoints;
     private int _waypointIndex = 0;
@@ -20,7 +24,10 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        current = this;
+        if (current == null)
+        {
+            current = this;
+        }
         currentWaypoint = _waypoints[0];
         _touchManager = GameObject.FindGameObjectWithTag("TouchManager").GetComponent<TouchManager>();
 

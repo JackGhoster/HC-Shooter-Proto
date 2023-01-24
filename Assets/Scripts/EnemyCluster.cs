@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class EnemyCluster : MonoBehaviour
 {
+    /// <summary>
+    /// Object with this component attached will act as a container with an ID where you can put enemies, and whenever
+    /// an enemy dies it checks whether the enemy died in this container and if so then it increments the kill count
+    /// until it's the same as the number of enemies in this container and if so then it increments
+    /// the current container's ID
+    /// </summary>
+
     [SerializeField]
     private int _id;
     [SerializeField]

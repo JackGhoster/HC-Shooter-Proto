@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerShootingState : PlayerAbstractState
 {
+    /// <summary>
+    /// Check Player Abstract State for info
+    /// </summary>
     private PlayerStateManager _context;
     private PlayerShooting _playerShootingComponent;
 

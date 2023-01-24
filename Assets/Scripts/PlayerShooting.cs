@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class PlayerShooting : MonoBehaviour
 {
+    /// <summary>
+    /// Behavior of the player that defines Shooting logic of the player.
+    /// Component should be disabled as default.
+    /// Can be set enabled only upon entering Shooting State.
+    /// </summary>
     public Vector3 BulletDirection { get; private set; }
 
     [SerializeField]
@@ -43,6 +48,10 @@ public class PlayerShooting : MonoBehaviour
     {             
     }
 
+    /// <summary>
+    /// Takes the position of the last touch and draws a ray from camera to this position.
+    /// Next sets the ray as a direction of the bullet and invokes ShootBullet Method.
+    /// </summary>
     private void AimLogic()
     {
         //Debug.Log($"Touch pos in Shooting: {_touchManager.TouchPosition}");
@@ -51,7 +60,10 @@ public class PlayerShooting : MonoBehaviour
         BulletDirection = ray.direction;
         ShootBullet();
     }
-
+    /// <summary>
+    /// Takes a bullet from the pooler if available.
+    /// And plays a sound!
+    /// </summary>
     private void ShootBullet()
     {
         GameObject bullet = ObjectPooler.current.GetPooledObject();

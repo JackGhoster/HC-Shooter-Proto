@@ -4,6 +4,10 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class TouchManager : MonoBehaviour
 {
+    /// <summary>
+    /// Manages touch input.
+    /// </summary>
+
     private PlayerInput _playerinput;
 
     private InputAction _onTouchPressed;

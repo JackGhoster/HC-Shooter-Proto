@@ -5,11 +5,18 @@ using UnityEngine;
 
 public class EventManager : MonoBehaviour
 {
+    /// <summary>
+    /// Stores all the events and has all the methods to invoke those events 
+    /// </summary>
+
     public static EventManager current;
 
     private void Awake()
     {
-        current = this;
+        if (current == null)
+        {
+            current = this;
+        }
     }
 
     public event Action OnGameStarted;
@@ -18,6 +25,7 @@ public class EventManager : MonoBehaviour
     public event Action OnShootingEnded;
     public event Action OnKill;
     public event Action OnWin;
+
 
     public void StartGame()
     {

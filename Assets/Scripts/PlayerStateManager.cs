@@ -5,6 +5,10 @@ using UnityEngine.AI;
 
 public class PlayerStateManager : MonoBehaviour
 {
+    /// <summary>
+    /// State Manager that I use as a component for Player.
+    /// Sets Idling State as the first state.
+    /// </summary>
     public Animator animator;
     public NavMeshAgent agent;
 
@@ -34,6 +38,10 @@ public class PlayerStateManager : MonoBehaviour
         _currentState.UpdateState(this);
     }
 
+    /// <summary>
+    /// Public method to switch states to other states even within the concrete states.
+    /// </summary>
+    /// <param name="newState">Takes a state as a parameter.</param>
     public void SwitchState(PlayerAbstractState newState)
     {
         _currentState = newState;
